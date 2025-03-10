@@ -1,0 +1,21 @@
+//Import font from url path
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+//Create the font-family
+%roboto{
+    font-family: 'Roboto', serif;
+    font-weight: 400;
+}
+
+//No Margin or Padding
+%noMarPad {
+    margin: 0;
+    padding: 0;
+}
+
+//Absolute center with either flex or grid
+%absoluteCenter {
+    justify-content: center;
+    align-items: center;
+}
+

@@ -1,0 +1,9 @@
+@use "./assets/styles/placeholder" as *;
+
+#root{
+    @extend %roboto;
+}
+
+body{
+    @extend %noMarPad;
+}

@@ -1,0 +1,22 @@
+@use "../../styles/placeholder" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixin" as mx;
+
+.logoContainer {
+  border: 2px solid $color-green;
+  @include mx.flexible(row, 0.5rem);
+  width: fit-content;
+  background-color: $color-green;
+  h1 {
+    @extend %noMarPad;
+    padding: 0.1rem;
+    font-weight: 400;
+    color: $color-green;
+    background-color: $color-secondary;
+  }
+
+  h1:nth-child(odd) {
+    color: $color-secondary;
+    background-color: $color-green;
+  }
+}
