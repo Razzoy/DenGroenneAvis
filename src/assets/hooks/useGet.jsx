@@ -1,3 +1,4 @@
+//UseGet.jsx koden er taget fra tidligere opgave
 import { useEffect, useState } from "react";
 
 export function useGet(url, token, param) {

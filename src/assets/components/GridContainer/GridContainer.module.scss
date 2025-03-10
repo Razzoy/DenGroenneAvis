@@ -1,0 +1,8 @@
+@use "../../styles/placeholder" as *;
+
+.grid{
+    @extend %absoluteCenter;
+    display: grid;
+    align-items: center;
+    max-width: 100%;
+}

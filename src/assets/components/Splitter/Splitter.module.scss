@@ -1,0 +1,8 @@
+@use "../../styles/variables" as *;
+
+.splitterContainer{
+    width: 100%;
+    height: 4px;
+    background-color: $color-green;
+    margin: 1rem 0;
+}

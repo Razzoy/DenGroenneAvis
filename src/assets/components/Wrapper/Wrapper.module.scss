@@ -1,0 +1,11 @@
+@use '../../styles/variables' as *;
+
+.wrapperContainer{
+    background-color: $color-primary;
+    padding: 5rem;
+}
+
+.maxContent{
+    max-width: 980px;
+    margin: 0 auto;
+}

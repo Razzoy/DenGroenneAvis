@@ -1,0 +1,31 @@
+@use "../../styles/mixin" as mx;
+@use "../../styles/placeholder" as *;
+@use "../../styles/variables" as *;
+
+.cardContainer {
+  position: relative;
+}
+
+.imageContainer{
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+  }
+}
+
+.hoverText{
+  
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $transparent-green;
+  h5{
+    padding: 0.5rem;
+    margin: auto auto;
+    color: $color-secondary;
+    font-weight: 400;
+  }
+}

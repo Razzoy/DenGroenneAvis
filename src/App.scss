@@ -1,4 +1,5 @@
 @use "./assets/styles/placeholder" as *;
+@use "./assets/styles/variables" as *;
 
 #root{
     @extend %roboto;

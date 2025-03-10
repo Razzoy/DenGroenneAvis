@@ -1,0 +1,14 @@
+@use '../../styles/placeholder' as *;
+@use '../../styles/variables' as *;
+@use '../../styles/mixin' as mx;
+
+
+.footerContainer{
+    @include mx.flexible(row, 1rem);
+    background-color: $color-blue;
+    ul{
+        list-style: none;
+        @extend %noMarPad;
+        
+    }
+}

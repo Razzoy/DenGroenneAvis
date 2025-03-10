@@ -1,7 +1,45 @@
-import style from './Footer.module.scss'
+import { SignInput } from "../SignInput/SignInput";
+import style from "./Footer.module.scss";
 
 export function Footer() {
   return (
-    <div>Footer</div>
-  )
+    <div className={style.footerContainer}>
+      <ul>
+        <li>
+          <h4>Nyhedsbrev</h4>
+        </li>
+        <li>
+          Vil du være med på den grønne front? Tilmeld dig vores nyhedsbrev og
+          få de seneste klima opdateringer direkte i din indbakke
+        </li>
+        <li>
+          <SignInput />
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <h4>Kontakt</h4>
+        </li>
+        <li>Redningen 42</li>
+        <li>2210 Vinterby Øster</li>
+        <li>+45 99229422</li>
+        <li>dga@info.dk</li>
+      </ul>
+      <ul>
+        <li>
+          <h4>FN's Verdensmål</h4>
+        </li>
+        <li>
+          Vi støtter på organisatorisk plan op om FN´s verdensmål og har derfor
+          besluttet at en del af overskuddet går direkte til verdensmål nr. 13;
+          Klimahandling
+        </li>
+        <li>
+          <a href="https://www.verdensmaalene.dk/" target="_blank">
+            Læs mere om verdensmålene her
+          </a>
+        </li>
+      </ul>
+    </div>
+  );
 }

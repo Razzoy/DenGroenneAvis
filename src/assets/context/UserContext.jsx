@@ -1,3 +1,4 @@
+//UserContext.jsx koden er taget fra tidligere opgave
 import { createContext, useEffect, useState } from "react";
 
 export const UserContext = createContext();
