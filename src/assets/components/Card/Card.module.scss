@@ -4,9 +4,17 @@
 
 .cardContainer {
   position: relative;
+  overflow: hidden;
+
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 .imageContainer{
+
+  max-height: 150px;
+
   img{
     width: 100%;
     height: 100%;
@@ -15,17 +23,39 @@
   }
 }
 
-.hoverText{
-  
+.cardText{
   position: absolute;
-  bottom: 0;
   left: 0;
   right: 0;
-  background-color: $transparent-green;
+  @include mx.flexible(row, 1rem);
   h5{
     padding: 0.5rem;
     margin: auto auto;
     color: $color-secondary;
-    font-weight: 400;
   }
+}
+
+.hoverBottom{
+  @extend .cardText;
+  bottom: -3rem;
+  background-color: $transparent-blue;
+}
+
+.cardContainer:hover .hoverBottom{
+  transition: 200ms;
+  bottom: 0;
+}
+
+.hoverTop{
+  @extend .cardText;
+  top: -3rem;
+  background-color: $color-blue;
+  h5{
+    text-decoration: underline;
+  }
+}
+
+.cardContainer:hover .hoverTop{
+  transition: 200ms;
+  top: 0;
 }

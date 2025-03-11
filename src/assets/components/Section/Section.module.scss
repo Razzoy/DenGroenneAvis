@@ -1,0 +1,77 @@
+@use "../../styles/placeholder" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixin" as mx;
+
+.sectionContainer {
+  position: relative;
+}
+
+.backgroundImage{
+    filter: brightness(80%);
+    background-size: cover;
+  background-position: center 75%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
+
+.sectionContent {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  h2,
+  h3,
+  p,
+  h4 {
+    color: $color-secondary;
+    margin: 0;
+  }
+  h3 {
+  }
+
+  h4 {
+    font-size: 32px;
+    color: $color-blue;
+    text-align: end;
+  }
+
+  p {
+    font-size: 11px;
+  }
+}
+
+.mainSection {
+  height: 240px;
+
+  .sectionContent {
+    @include mx.flexible(column, 1rem);
+    @extend %absoluteCenter;
+
+    h2 {
+      font-size: 32px;
+    }
+    h3 {
+      font-size: 20px;
+      text-align: center;
+      width: 50%;
+    }
+  }
+}
+
+.altSection {
+  height: 150px;
+
+  .sectionContent {
+    @include mx.flexible(column, 0rem);
+    padding: 1rem 2rem;
+    h2 {
+      font-size: 24px;
+    }
+    h3 {
+      font-size: 16px;
+    }
+  }
+}

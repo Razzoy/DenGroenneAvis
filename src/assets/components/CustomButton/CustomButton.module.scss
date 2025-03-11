@@ -1,0 +1,21 @@
+@use "../../styles/placeholder" as *;
+@use "../../styles/variables" as *;
+
+.btn {
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  background-color: $color-green;
+  color: $color-secondary;
+  width: 130px;
+  height: 40px;
+}
+
+.btn-example2 {
+  color: white;
+}
+
+.btn:disabled {
+  background-color: #d6d6d6;
+  cursor: not-allowed;
+}

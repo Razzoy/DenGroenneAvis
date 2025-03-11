@@ -10,8 +10,8 @@ export function Header() {
     <div className={style.headerContainer}>
       <Logo />
       <div className={style.content}>
-        <select>
-          <option>vælg kategori</option>
+        <select value={''}>
+          <option disabled value={''}>vælg kategori</option>
           {!isLoading &&
             data?.data?.map((item) => {
               return <option key={item.id} value={item.id}>{item.name}</option>;
@@ -23,8 +23,8 @@ export function Header() {
         <div className={style.iconNav}>
           <ul>
             <li><NavLink to={"/listing"}><img src="/Icons/mail.png" alt="" /></NavLink></li>
-            <li><NavLink><img src="/Icons/info.png" alt="" /></NavLink></li>
-            <li><NavLink><img src="/Icons/account.png" alt="" /></NavLink></li>
+            <li><NavLink to={"/info"} ><img src="/Icons/info.png" alt="" /></NavLink></li>
+            <li><NavLink to={"/login"} ><img src="/Icons/account.png" alt="" /></NavLink></li>
           </ul>
         </div>
       </div>

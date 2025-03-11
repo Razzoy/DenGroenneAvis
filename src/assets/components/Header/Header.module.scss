@@ -18,26 +18,36 @@
     &:hover{
       cursor: pointer;
     }
-
     
   }
 
   .listingStyle {
-    display: block;
     width: 140px;
     height: 2.8rem;
     background-color: $color-blue;
     display: flex;
     @extend %absoluteCenter;
+    &:hover{
+      background-color: $color-green;
+    }
 
     a {
       font-size: 12px;
       text-decoration: none;
       color: $color-secondary;
+      width: 100%;
+      padding: 0.9rem 0;
+      text-align: center;
+      
     }
+
+
   }
 
   .iconNav {
+
+    display: flex;
+    align-items: center;
     ul {
       list-style: none;
       @extend %noMarPad;

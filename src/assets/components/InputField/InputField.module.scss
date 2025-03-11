@@ -1,0 +1,30 @@
+@use "../../styles/placeholder" as *;
+
+.inputContainer{
+    width: max-content;
+    position: relative;
+    .inputStyling{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 570px;
+        height: 56px;
+        padding-left: 0.5rem;
+        border: 2px solid #1D843980;
+        background-color: #EDECEC;
+        font-size: 14px;
+
+        &::placeholder{
+            font-size: 14px;
+        }
+    }
+    img{
+        width: 32px;
+        opacity: 50%;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-25%);
+    }
+}

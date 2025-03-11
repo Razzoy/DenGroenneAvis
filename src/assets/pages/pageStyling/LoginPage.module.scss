@@ -1,0 +1,45 @@
+@use "../../styles/mixin" as mx;
+@use "../../styles/placeholder" as *;
+@use "../../styles/variables" as *;
+
+h6{
+    @extend %noMarPad;
+}
+p{
+    @extend %noMarPad;
+}
+
+form{
+    @include mx.flexible(column, 1rem);
+    
+
+    input{
+        max-width: 400px; 
+    }
+    p{
+        font-size: 0.9rem;
+        font-weight: 200;
+    }
+}
+
+.toggle{
+    color: $color-blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.loginButtons{
+    @include mx.flexible(row, 1rem);
+
+    button{
+        min-width: 130px;
+    }
+}
+
+.error{
+    color: $color-brown;
+}
+
+.success{
+    color: $color-green;
+}
