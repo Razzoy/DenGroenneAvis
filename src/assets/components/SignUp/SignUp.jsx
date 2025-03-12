@@ -1,9 +1,12 @@
-import style from '../../pages/pageStyling/LoginPage.module.scss';
+import style from "../../pages/pageStyling/LoginPage.module.scss";
 import { InputField } from "../InputField/InputField";
 import { CustomButton } from "../CustomButton/CustomButton";
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { CheckBox } from "../CheckBox/CheckBox";
 
 export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
+  //Inputfield useStates
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -12,6 +15,8 @@ export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
   const [zipcode, setZipcode] = useState("");
+  //Checkbox useState
+  const [isChecked, setIsChecked] = useState(false);
 
   const registerUser = () => {
     const validationError = validateInputs();
@@ -29,35 +34,44 @@ export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
     body.append("zipcode", zipcode);
     body.append("city", city);
 
-    fetch("http://localhost:4242/users", {
-      method: "POST",
-      body: body,
-    })
-      .then((res) => res.json)
-      .then((data) => {
-        if (data.message == "Record created") {
-          setLoginMessage(`Din konto er oprettet! Du kan nu logge ind.`);
-          toggleSignIn();
-          setError("");
-        } else {
-          setError("Noget gik galt under oprettelsen af konto");
+    async function fetchData() {
+      try {
+
+        const response = await fetch("http://localhost:4242/users", {
+          method: "POST",
+          body: body,
+        });
+        if (!response.ok) {
+          if (response.status === 500) {
+            setError("Der er allerede en bruger med denne emailadresse");
+          } else {
+            setError(
+              "Noget gik galt under forsøget på at logge ind... Prøv igen"
+            );
+          }
+          throw new Error(`Status: ${response.status}`);
         }
-      })
-      .catch(() => {
-        setError("Noget gik galt under registreringen... Prøv igen");
-      });
+        const result = await response.json();
+        if (result.data.access_token) {
+          setLoginMessage(`Du har nu oprettet en bruger`);
+        }
+      } catch (error) {
+        console.error("API request error: ", error);
+      }
+    }
+    fetchData();
   };
 
   const validateInputs = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+    const passwordRegex = /^.{8,}$/;
 
     if (!emailRegex.test(email)) {
       return "Ugyldig emailadresse";
     }
 
     if (!passwordRegex.test(password)) {
-      return "Adgangskoden skal være mindst 8 tegn, indeholde et stort bogstav, et lille bogstav og et tal";
+      return "Adgangskoden skal være mindst 8 tegn";
     }
 
     if (password !== confirmPassword) {
@@ -74,7 +88,6 @@ export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
         type="email"
         placeholder="Skriv en email..."
         id="email"
-        value={email}
         action={(value) => {
           setEmail(value);
           setError("");
@@ -85,7 +98,6 @@ export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
         type="password"
         placeholder="Skriv et password..."
         id="password"
-        value={password}
         action={(value) => {
           setPassword(value);
           setError("");
@@ -97,7 +109,6 @@ export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
         type="password"
         placeholder="Gentag dit password..."
         id="confirmPassword"
-        value={confirmPassword}
         action={(value) => {
           setConfirmPassword(value);
           setError("");
@@ -108,7 +119,6 @@ export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
         type="text"
         placeholder="Skriv dit Fornavn..."
         id="firstname"
-        value={firstname}
         action={(value) => {
           setFirstname(value);
           setError("");
@@ -119,7 +129,6 @@ export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
         type="text"
         placeholder="Skriv dit Efternavn..."
         id="lastname"
-        value={lastname}
         action={(value) => {
           setLastname(value);
           setError("");
@@ -130,7 +139,6 @@ export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
         type="text"
         placeholder="Skriv din Adresse..."
         id="address"
-        value={address}
         action={(value) => {
           setAddress(value);
           setError("");
@@ -141,7 +149,6 @@ export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
         type="text"
         placeholder="Skriv din by..."
         id="city"
-        value={city}
         action={(value) => {
           setCity(value);
           setError("");
@@ -152,7 +159,6 @@ export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
         type="number"
         placeholder="Skriv dit postnummer..."
         id="zipcode"
-        value={zipcode}
         action={(value) => {
           setZipcode(value);
           setError("");
@@ -167,10 +173,18 @@ export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
       </p>
 
       <section className={style.buttonsContainer}>
+        <CheckBox isChecked={isChecked} setIsChecked={setIsChecked}/>
         <CustomButton
           label={"Opret"}
           onClick={() => {
+            setLoginMessage("");
+            setError("");
+            if (!isChecked) {
+              setError("Du skal acceptere betingelserne for at oprette en bruger.");
+              return;
+            }
             registerUser();
+            toggleSignIn();
           }}
         />
       </section>

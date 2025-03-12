@@ -1,29 +1,34 @@
-//UserContext.jsx koden er taget fra tidligere opgave
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
-  const [userData, setUserData] = useState();
+    const [userData, setUserData] = useState(() => {
+        // Check sessionStorage, if not available, return null
+        const storedUserData = sessionStorage.getItem("userData");
+        return storedUserData ? JSON.parse(storedUserData) : null;
+    });
+    const [userToken, setUserToken] = useState(() => {
+        // Check sessionStorage, if not available, return null
+        const storedUserToken = sessionStorage.getItem("userToken");
+        return storedUserToken || null;
+    });
 
-  useEffect(() => {
-    // When the component mounts, check if userData exists as a state.
-    // If not, then check if userData ecists in sessionStorage.
-    // If it does, change state to the content in sessionStorage.
-    if (!userData) {
-      if (sessionStorage.getItem("userData")) {
-        setUserData(JSON.parse(sessionStorage.getItem("userData")));
-      }
-    }
-    //If the user data access token exists, put userData in sessionStorage
-    if (userData?.access_token) {
-      sessionStorage.setItem("userData", JSON.stringify(userData));
-    }
-  }, [userData]);
+    useEffect(() => {
+        // Only set sessionStorage when userData or userToken is present
+        if (userData && userToken) {
+            sessionStorage.setItem("userData", JSON.stringify(userData));
+            sessionStorage.setItem("userToken", userToken);
+        } else {
+            // Ensure we clear sessionStorage when logged out
+            sessionStorage.removeItem("userData");
+            sessionStorage.removeItem("userToken");
+        }
+    }, [userData, userToken]);
 
-  return (
-    <UserContext.Provider value={{ userData, setUserData }}>
-      {children}
-    </UserContext.Provider>
-  );
+    return (
+        <UserContext.Provider value={{ userData, setUserData, userToken, setUserToken }}>
+            {children}
+        </UserContext.Provider>
+    );
 };

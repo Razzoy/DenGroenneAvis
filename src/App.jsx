@@ -4,7 +4,7 @@ import { MainLayout } from './assets/layout/MainLayout'
 import { FrontPage } from './assets/pages/FrontPage'
 import { ListingPage } from './assets/pages/ListingPage'
 import { NoPage } from './assets/pages/NoPage'
-import { ProductDetailsPage } from './assets/pages/ProductDetailsPage'
+import { CategoryPage } from './assets/pages/CategoryPage'
 import { ProductPage } from './assets/pages/ProductPage'
 import { LoginPage } from './assets/pages/LoginPage'
 
@@ -18,8 +18,8 @@ function App() {
         <Route index={true} element={<FrontPage/>}/>
         <Route path={"/listing"} element={<ListingPage/>} />
         <Route path={"/login"} element={<LoginPage/>} />
-        <Route path={"/products"} element={<ProductPage/>} />
-        <Route path={"/products/:id"} element={<ProductDetailsPage/>} />
+        <Route path={"/products/:slug"} element={<ProductPage/>} />
+        <Route path={"/products/category/:slug"} element={<CategoryPage/>} />
         <Route path={"/*"} element={<NoPage/>} />
         </Route>
       </Routes>

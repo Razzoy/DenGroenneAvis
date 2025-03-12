@@ -28,13 +28,20 @@ form{
     cursor: pointer;
 }
 
-.loginButtons{
+.buttonsContainer{
     @include mx.flexible(row, 1rem);
 
+    
     button{
         min-width: 130px;
     }
 }
+
+.messageContainer{
+    padding: 1rem 0;
+}
+
+
 
 .error{
     color: $color-brown;

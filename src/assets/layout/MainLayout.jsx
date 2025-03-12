@@ -1,5 +1,5 @@
 import style from "./MainLayout.module.scss";
-import { UserContextProvider } from "../context/userContext";
+import { UserContextProvider } from "../context/UserContext";
 import { Outlet } from "react-router-dom";
 import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";

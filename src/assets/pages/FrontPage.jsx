@@ -32,6 +32,7 @@ export function FrontPage() {
                   imageSrc={product.image}
                   alt={product.slug}
                   title={product.name}
+                  path={`/products/${product.slug}`}
                 />
               );
             })}
@@ -57,6 +58,7 @@ export function FrontPage() {
                 alt={cat.slug}
                 title={cat.name}
                 top={"true"}
+                path={`/products/category/${cat.slug}`}
               />
             );
           })}
