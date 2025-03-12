@@ -8,6 +8,7 @@ export const InputField = ({
   id,
   icon,
   isShowing,
+  value,
 }) => {
   const onInputChange = (e) => {
     action(e.target.value);
@@ -22,6 +23,7 @@ export const InputField = ({
         id={id}
         type={type}
         placeholder={placeholder}
+        value={value}
       />
       {icon && isShowing === true && <img src={`/Icons/${icon}.png`} alt={`${icon}`} />}
     </div>

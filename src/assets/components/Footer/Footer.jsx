@@ -1,12 +1,22 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { SignInput } from "../SignInput/SignInput";
 import style from "./Footer.module.scss";
 import { GridContainer } from "../GridContainer/GridContainer";
+import { UserContext } from "../../context/UserContext";
 
 export function Footer() {
 
+  const { userData } = useContext(UserContext);
   const [signedIn, setSignedIn] = useState(false);
+  
 
+  useEffect(() => {
+    if (userData?.access_token) {
+      setSignedIn(true);
+    } else {
+      setSignedIn(false);
+    }
+  }, [userData])
 
   return (
     <div className={style.footerContainer}>

@@ -11,6 +11,7 @@
     @extend %noMarPad;
 
     li {
+      @extend %roboto;
       font-size: 12px;
     }
     h4 {

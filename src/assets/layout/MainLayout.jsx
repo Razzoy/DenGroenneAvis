@@ -9,13 +9,13 @@ export function MainLayout() {
   return (
     <div className={style.mainLayoutStyle}>
       <Header />
+      {/* Everything in UserContextProvider will be changeable depending on if logged in or not */}
+      <UserContextProvider>
       <Wrapper>
-        {/* Everything in UserContextProvider will be changeable depending on if logged in or not */}
-        <UserContextProvider>
           <Outlet />
-        </UserContextProvider>
       </Wrapper>
       <Footer />
+      </UserContextProvider>
     </div>
   );
 }

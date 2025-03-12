@@ -6,7 +6,7 @@ import { ListingPage } from './assets/pages/ListingPage'
 import { NoPage } from './assets/pages/NoPage'
 import { ProductDetailsPage } from './assets/pages/ProductDetailsPage'
 import { ProductPage } from './assets/pages/ProductPage'
-import LoginPage from './assets/pages/LoginPage'
+import { LoginPage } from './assets/pages/LoginPage'
 
 function App() {
 
