@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
+import style from './SignNewsletter.module.scss'
 
-export function SignInput() {
+export function SignNewsletter() {
 
 
   return (

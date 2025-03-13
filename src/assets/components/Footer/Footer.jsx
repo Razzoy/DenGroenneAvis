@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { SignInput } from "../SignInput/SignInput";
+import { SignNewsletter } from "../SignNewsletter/SignNewsletter";
 import style from "./Footer.module.scss";
 import { GridContainer } from "../GridContainer/GridContainer";
 import { UserContext } from "../../context/UserContext";
@@ -30,7 +30,7 @@ export function Footer() {
           få de seneste klima opdateringer direkte i din indbakke
         </li>
         <li>
-          {signedIn === true && <SignInput />}
+          {signedIn === true && <SignNewsletter />}
         </li>
       </ul>
       <ul>
