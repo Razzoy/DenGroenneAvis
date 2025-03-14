@@ -79,44 +79,39 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 700px) {
   .listingHeader {
     h2 {
-      font-size: 36px;
+      font-size: 24px;
       padding-bottom: 1rem;
     }
     p {
-      font-size: 16px;
+      font-size: 12px;
+      text-align: center;
     }
   }
   .listingFormContainer {
-    @include mx.flexible(column, 1rem);
+    @include mx.flexible(column, 0rem);
     select {
-      height: 56px;
+      height: 36px;
+      font-size: 12px;
+    }
+    label{
       font-size: 14px;
-      padding-left: 0.5rem;
-      border: 2px solid $transparent-green;
+      padding: 0.5rem 0 0;
     }
     textarea {
-      height: 170px;
-      border: 2px solid $transparent-green;
-      padding: 0.5rem;
-      font-size: 14px;
+      height: 150px;
+      font-size: 12px;
       &::placeholder {
-        font-size: 14px;
+        font-size: 12px;
       }
     }
     .validationSubmitContainer {
-      justify-content: space-between;
-      width: 100%;
       button {
-        width: 130px;
-        height: 40px;
-        margin-left: auto;
+        width: 100px;
+        height: 30px;
       }
     }
   }
-}
-
-@media (max-width: 700px) {
 }

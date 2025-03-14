@@ -1,13 +1,13 @@
-import { NavLink } from "react-router-dom";
+import style from './SignNewsletter.module.scss'
 
 export function SignNewsletter() {
 
 
   return (
-    <div>
+    <div className={style.newsLetterContainer}>
       <form>
         <input type="text" />
-        <NavLink></NavLink>
+        <button>send</button>
       </form>
     </div>
   )

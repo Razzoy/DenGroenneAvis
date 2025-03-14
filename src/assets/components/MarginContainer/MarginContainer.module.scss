@@ -10,18 +10,10 @@
     position: relative;
 }
 
-@media (max-width: 1200px) {
-    .frameStyle{
-        padding-top: 2rem;
-        width: 75%;
-        @include mx.flexible(column, 1rem);
-    }
-
-}
 @media (max-width: 700px) {
     .frameStyle{
-        padding-top: 2rem;
-        width: 75%;
+        padding-top: 0rem;
+        width: 85%;
         @include mx.flexible(column, 1rem);
     }
 }

@@ -8,14 +8,15 @@
     min-height: 100%;
     list-style: none;
     @extend %noMarPad;
+    margin: 0 auto;
 
     li {
       @extend %roboto;
       font-size: 12px;
     }
     h4 {
-        padding: 2rem 0;
-        margin: 0;
+      padding: 2rem 0;
+      margin: 0;
       font-size: 20px;
       color: $color-secondary;
     }
@@ -25,29 +26,28 @@
   }
 }
 
-.liLink{
-    padding-top: 1rem;
+.liLink {
+  padding-top: 1rem;
 }
 
 @media (max-width: 1200px) {
   .footerContainer {
-    padding: 0rem 5rem 2rem;
+    padding: 0rem 3rem 2rem;
+  }
+}
+@media (max-width: 700px) {
+  .footerContainer {
+    padding: 0rem 1rem 1rem;
     ul {
       min-height: 100%;
+      margin: 0;
       li {
-        font-size: 12px;
+        font-size: 11px;
       }
       h4 {
-          padding: 2rem 0;
-        font-size: 20px;
+        padding: 0.5rem 0;
+        font-size: 18px;
       }
     }
   }
-  .liLink{
-      padding-top: 1rem;
-  }
-
-}
-@media (max-width: 700px) {
-  
 }

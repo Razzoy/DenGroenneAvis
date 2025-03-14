@@ -2,7 +2,6 @@ import style from "../../pages/pageStyling/LoginPage.module.scss";
 import { InputField } from "../InputField/InputField";
 import { CustomButton } from "../CustomButton/CustomButton";
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { CheckBox } from "../CheckBox/CheckBox";
 import { MarginContainer } from "../MarginContainer/MarginContainer";
 
@@ -82,7 +81,7 @@ export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
 
   return (
     <MarginContainer>
-      <form>
+      <form className={style.signupContainer}>
         <h2>Opret konto</h2>
         <InputField
           labelText="Email"
@@ -165,7 +164,7 @@ export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
             setError("");
           }}
         />
-        <p>
+        <p className={style.signinChange}>
           har du allerede en konto hos os? Klik{" "}
           <span className={style.toggle} onClick={toggleSignIn}>
             her

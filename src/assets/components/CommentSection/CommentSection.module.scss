@@ -6,6 +6,7 @@
   width: 100%;
   @include mx.flexible(column, 1rem);
   h3 {
+    text-align: center;
     color: $color-green;
     font-size: 32px;
     margin: 0;
@@ -44,30 +45,15 @@
 .sectionContent {
   @include mx.flexible(column, 1rem);
 }
-
-@media (max-width: 1200px) {
-    .commentSectionContainer {
-        width: 100%;
-        @include mx.flexible(column, 1rem);
-        h3 {
-          font-size: 32px;
-        }
-      
-        textarea {
-          height: 150px;
-          padding: 0.5rem;
-          border: 1px solid $color-green;
-        }
-        button {
-          align-self: flex-end;
-          width: 80px;
-          height: 30px;
-        }
-      }
-      
-      .sectionContent {
-        @include mx.flexible(column, 1rem);
-      }
-}
 @media (max-width: 700px) {
+  .commentSectionContainer {
+    @include mx.flexible(column, 0.5rem);
+    h3 {
+      font-size: 24px;
+    }
+  }
+  
+  .sectionContent {
+    @include mx.flexible(column, 0rem);
+  }
 }

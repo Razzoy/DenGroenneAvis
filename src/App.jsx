@@ -21,7 +21,6 @@ function App() {
         <Route path={"/products/:slug"} element={<ProductPage/>} />
         <Route path={"/products/category/:slug"} element={<CategoryPage/>} />
         <Route path={"/listing"} element={<ListingPage/>} />
-        <Route path={"/profile"} element={<ProfilePage/>} />
         <Route path={"/*"} element={<NoPage/>} />
         </Route>
       </Routes>

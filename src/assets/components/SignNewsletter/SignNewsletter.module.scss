@@ -1,0 +1,61 @@
+@use "../../styles/placeholder" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixin" as mx;
+
+.newsLetterContainer{
+    padding-top: 1rem;
+    form{
+     
+        input{
+            @extend %noMarPad;
+            width: 300px;
+            &:focus{
+               outline: none;
+            }
+        }
+        button{
+            width: 70px;
+            cursor: pointer;
+            color: $color-secondary;
+            background-color: $color-green;
+        }
+
+        input, button{
+            height: 34px;
+            border: none;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .newsLetterContainer{
+        form{
+            input{
+                width: 200px;
+            }
+            button{
+                width: 60px;
+            }
+            input, button{
+                height: 30px;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .newsLetterContainer{
+        form{
+            input{
+                width: 150px;
+            }
+            button{
+                width: 50px;
+            }
+            input, button{
+                height: 26px;
+                font-size: 12px;
+            }
+        }
+    }
+}

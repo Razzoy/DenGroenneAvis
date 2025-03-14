@@ -6,12 +6,11 @@ export function GridContainer({ children, fraction, gap }) {
 
     const inlinestyle = {
     display: `grid`,
-    gridTemplateColumns: `${fraction}`,
     gap: `${gap}`,
     };
 
     return (
-        <div className={style.grid} style={{ ...inlinestyle}}>
+        <div className={style.grid} style={{ ...inlinestyle, gridTemplateColumns: fraction}}>
             {children}
         </div>
     )

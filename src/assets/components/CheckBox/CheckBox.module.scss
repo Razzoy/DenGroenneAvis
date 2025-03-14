@@ -12,19 +12,24 @@
         border: 1px solid $color-green;
         cursor: pointer;
     }
-}
-
-@media (max-width: 1200px) {
-    .radioContainer{
-        padding: 1rem 0;
-        @include mx.flexible(row, 1rem);
-        input{
-            width: 20px;
-            height: 20px;
+    p{
+        a{
+            color: $color-blue;
         }
     }
-
 }
 @media (max-width: 700px) {
-  
+    .radioContainer{
+        padding: 1rem 0;
+        @include mx.flexible(row, 0.5rem);
+        input{
+            margin: 0;
+        }
+        p{
+            font-size: 12px;
+            a{
+                font-size: 12px;
+            }
+        }
+    }
 }

@@ -11,12 +11,15 @@
 
 .content {
   @include mx.flexible(row, 2rem);
-
+  align-items: center;
   select {
     height: 2.8rem;
     border: 2px solid $color-blue;
     &:hover{
       cursor: pointer;
+    }
+    &:focus{
+      outline: none;
     }
   }
 
@@ -67,37 +70,29 @@
 
 @media (max-width: 1200px) {
   .headerContainer {
-    padding: 2.5rem 7.5rem;
-    justify-content: space-between;
+    padding: 1rem;
   }
   .content {
-    @include mx.flexible(row, 2rem);
-  
-    select {
-      height: 2.8rem;
-      border: 2px solid $color-blue;
+    @include mx.flexible(row, 0.5rem);
+
+    select{
+      height: 2rem;
+      width: 120px;
     }
-  
+
     .listingStyle {
-      width: 140px;
-      height: 2.8rem;
-      display: flex;
+      height: 2rem;
+      width: 120px;
       a {
-        font-size: 12px;
-        width: 100%;
-        padding: 0.9rem 0;
+        padding: 0.6rem 0;
       }
     }
     .iconNav {
-      display: flex;
-      align-items: center;
       ul {
-        @include mx.flexible(row, 0.5rem);
         li {
           a {
-            width: fit-content;
             img {
-              width: 35px;
+              width: 30px;
             }
           }
         }
@@ -106,5 +101,17 @@
   }
 }
 @media (max-width: 700px) {
-  
+  .headerContainer {
+    padding: 1rem 2rem;
+    @include mx.flexible(column, 1rem);
+  }
+  .content {
+    select{
+      width: 55px;
+    }
+
+    .listingStyle {
+      width: 100px;
+    }
+  }
 }

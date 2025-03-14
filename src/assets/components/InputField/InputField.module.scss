@@ -5,6 +5,7 @@
 .inputContainer{
     width: 100%;
     position: relative;
+    padding: 0.5rem 0;
     .inputStyling{
         position: relative;
         box-sizing: border-box;
@@ -53,5 +54,21 @@
     }
 }
 @media (max-width: 700px) {
-  
+    .inputContainer{
+        label{
+            font-size: 14px;
+        }
+        .inputStyling{
+            height: 36px;
+            font-size: 12px;
+            &::placeholder{
+                font-size: 12px;
+            }
+        }
+        img{
+            width: 24px;
+            right: 0.5rem;
+            transform: translateY(-10%);
+        }
+    }
 }

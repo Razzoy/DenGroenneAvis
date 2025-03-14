@@ -18,7 +18,6 @@ export function ProductPage() {
   );
   const productID = data?.data?.id;
 
-
   function submitComment() {
     const body = new URLSearchParams();
     body.append("comment", newComment);
@@ -63,7 +62,7 @@ export function ProductPage() {
     <>
       <Splitter />
       <MarginContainer>
-        <CategoryList urlSlug={slug} />
+        <CategoryList urlSlug={slug}/>
         {data && (
           <SingleProductCard
             img={data?.data.image}
@@ -85,16 +84,19 @@ export function ProductPage() {
           {!isLoading &&
             data?.data?.comments?.map((item) => {
               return (
-                <>
+                <div key={item.id}>
                   <Comments
                     user={`${item.user?.firstname} ${formatDate(
                       item.createdAt
                     )}`}
                     comment={item.comment}
-                    onDelete={() => deleteComment()}
-                    // buttonTitle={'Slet kommentar'} 
+
+                    //**funktion ikke implementeret**
+
+                    // onDelete={() => deleteComment()}
+                    // buttonTitle={'Slet kommentar'}
                   />
-                </>
+                </div>
               );
             })}
         </CommentSection>

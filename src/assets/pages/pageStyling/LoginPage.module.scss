@@ -27,15 +27,20 @@ h2 {
   }
 }
 
+.signupContainer{
+  h2{
+    @extend %noMarPad;
+  }
+  .signinChange{
+    font-weight: 200;
+  }
+}
+
 .formStyling {
   @include mx.flexible(column, 1rem);
   justify-content: center;
   h2 {
     text-align: center;
-  }
-
-  input {
-    max-width: 400px;
   }
   p {
     font-size: 0.9rem;
@@ -70,31 +75,31 @@ h2 {
   color: $color-green;
 }
 
-@media (max-width: 1200px) {
+
+@media (max-width: 700px) {
   .signedInContainer {
-    @include mx.flexible(row, 1rem);
+    @include mx.flexible(row, 0.5rem);
   }
-  .formStyling {
-    @include mx.flexible(column, 1rem);
-    justify-content: center;
-    input {
-      max-width: 400px;
+
+  .signupContainer{
+    .signinChange{
+      font-size: 12px;
     }
+  }
+
+  .formStyling {
+    @include mx.flexible(column, 0.5rem);
     p {
-      font-size: 0.9rem;
+      font-size: 14px;
     }
   }
   .buttonContainer {
-    @include mx.flexible(row, 1rem);
-    justify-content: flex-end;
+    @include mx.flexible(row, 0.5rem);
     button {
-      min-width: 130px;
+      min-width: 100px;
     }
   }
   .messageContainer {
     padding: 1rem 0;
   }
-}
-
-@media (max-width: 700px) {
 }
