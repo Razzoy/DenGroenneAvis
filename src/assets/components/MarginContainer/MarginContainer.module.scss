@@ -1,5 +1,27 @@
+@use "../../styles/mixin" as mx;
 
 .frameStyle{
+    padding-top: 2rem;
     margin: 0 auto;
-    width: 80%;
+    width: 75%;
+    @include mx.flexible(column, 1rem);
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+@media (max-width: 1200px) {
+    .frameStyle{
+        padding-top: 2rem;
+        width: 75%;
+        @include mx.flexible(column, 1rem);
+    }
+
+}
+@media (max-width: 700px) {
+    .frameStyle{
+        padding-top: 2rem;
+        width: 75%;
+        @include mx.flexible(column, 1rem);
+    }
 }

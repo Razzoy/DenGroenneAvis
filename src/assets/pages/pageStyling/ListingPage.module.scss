@@ -1,0 +1,122 @@
+@use "../../styles/mixin" as mx;
+@use "../../styles/placeholder" as *;
+@use "../../styles/variables" as *;
+
+.listingHeader {
+  @include mx.flexible(column, 0);
+  @extend %absoluteCenter;
+
+  h2,
+  p {
+    @extend %noMarPad;
+  }
+  h2 {
+    font-size: 36px;
+    padding-bottom: 1rem;
+  }
+  p {
+    font-size: 16px;
+  }
+}
+
+.listingFormContainer {
+  @include mx.flexible(column, 1rem);
+
+  select {
+    height: 56px;
+    font-size: 14px;
+    padding-left: 0.5rem;
+    border: 2px solid $transparent-green;
+    background-color: $input-color;
+    cursor: pointer;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  textarea {
+    height: 170px;
+    border: 2px solid $transparent-green;
+    resize: none;
+    padding: 0.5rem;
+    font-size: 14px;
+    background-color: $input-color;
+    @extend %roboto;
+    &::placeholder {
+      font-size: 14px;
+      @extend %roboto;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .validationSubmitContainer {
+    @include mx.flexible(row, 0);
+    justify-content: space-between;
+    width: 100%;
+
+    .success {
+      color: $color-blue;
+    }
+    .error {
+      color: $color-brown;
+    }
+
+    button {
+      width: 130px;
+      height: 40px;
+      background-color: $color-green;
+      border: none;
+      color: $color-secondary;
+      cursor: pointer;
+      margin-left: auto;
+
+      &:hover {
+        background-color: $color-blue;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .listingHeader {
+    h2 {
+      font-size: 36px;
+      padding-bottom: 1rem;
+    }
+    p {
+      font-size: 16px;
+    }
+  }
+  .listingFormContainer {
+    @include mx.flexible(column, 1rem);
+    select {
+      height: 56px;
+      font-size: 14px;
+      padding-left: 0.5rem;
+      border: 2px solid $transparent-green;
+    }
+    textarea {
+      height: 170px;
+      border: 2px solid $transparent-green;
+      padding: 0.5rem;
+      font-size: 14px;
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+    .validationSubmitContainer {
+      justify-content: space-between;
+      width: 100%;
+      button {
+        width: 130px;
+        height: 40px;
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+}

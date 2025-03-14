@@ -1,0 +1,43 @@
+.singleCardContainer{
+    img{
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        height: 500px;
+    }
+
+    h2{
+        font-size: 36px;
+        font-weight: 400;
+    }
+
+    p{
+        font-size: 14px;
+        font-weight: 300;
+    }
+
+    h4{
+        font-size: 20px;
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 1200px) {
+    .singleCardContainer{
+        img{
+            height: 500px;
+        }
+        h2{
+            font-size: 36px;
+        }
+        p{
+            font-size: 14px;
+        }
+        h4{
+            font-size: 20px;
+        }
+    }
+}
+@media (max-width: 700px) {
+  
+}

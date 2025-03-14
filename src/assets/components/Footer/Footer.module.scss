@@ -1,6 +1,5 @@
 @use "../../styles/placeholder" as *;
 @use "../../styles/variables" as *;
-@use "../../styles/mixin" as mx;
 
 .footerContainer {
   padding: 0rem 5rem 2rem;
@@ -28,4 +27,27 @@
 
 .liLink{
     padding-top: 1rem;
+}
+
+@media (max-width: 1200px) {
+  .footerContainer {
+    padding: 0rem 5rem 2rem;
+    ul {
+      min-height: 100%;
+      li {
+        font-size: 12px;
+      }
+      h4 {
+          padding: 2rem 0;
+        font-size: 20px;
+      }
+    }
+  }
+  .liLink{
+      padding-top: 1rem;
+  }
+
+}
+@media (max-width: 700px) {
+  
 }

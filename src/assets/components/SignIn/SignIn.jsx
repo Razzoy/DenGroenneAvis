@@ -4,11 +4,12 @@ import { UserContext } from "../../context/UserContext";
 import { InputField } from "../InputField/InputField";
 import { CustomButton } from "../CustomButton/CustomButton";
 import { useNavigate } from "react-router-dom";
+import { MarginContainer } from "../MarginContainer/MarginContainer";
 
 export function SignIn({ toggleRegister, setError, setLoginMessage }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {userToken, setUserData, setUserToken } = useContext(UserContext);
+  const { userToken, setUserData, setUserToken } = useContext(UserContext);
   const navigate = useNavigate();
 
   const logOut = () => {
@@ -16,7 +17,8 @@ export function SignIn({ toggleRegister, setError, setLoginMessage }) {
     setUserToken(null);
     sessionStorage.removeItem("userData");
     sessionStorage.removeItem("userToken");
-  }
+    setLoginMessage("");
+  };
 
   function submitData() {
     const validationError = validateInputs();
@@ -66,68 +68,71 @@ export function SignIn({ toggleRegister, setError, setLoginMessage }) {
     const passwordRegex = /^.{8,}$/;
 
     if (!emailRegex.test(email)) {
-      return "Ugyldig emailadresse (skal være mindst 3 tegn lang)";
+      return "Ugyldig emailadresse";
     }
     if (!passwordRegex.test(password)) {
-      return "Adgangskoden skal være mindst 8 tegn";
+      return "Adgangskoden er ikke korrekt";
     }
     return "";
   }
 
-  return (
-
-    userToken ? (
-      <div>
+  return userToken ? (
+    <MarginContainer>
       <h2>Du er logget ind</h2>
-      <button onClick={() => logOut()}>Log ud</button>
-      <button onClick={() => (navigate("/min-konto"))}>Gå til konto</button>
-      </div>
-    ) : (
-
-    <form>
-      <h2>Login</h2>
-      <InputField
-        icon={"at"}
-        labelText="Email"
-        type="email"
-        placeholder="Skriv en email..."
-        id="email"
-        isShowing={true}
-        action={(value) => {
-          setEmail(value);
-          setError("");
-        }}
-      />
-      <InputField
-        icon={"secure"}
-        labelText="Password"
-        type="password"
-        placeholder="Skriv et password..."
-        id="password"
-        isShowing={true}
-        action={(value) => {
-          setPassword(value);
-          setError("");
-        }}
-      />
-      <p>
-        har du ikke allerede en konto? Klik{" "}
-        <span className={style.toggle} onClick={toggleRegister}>
-          her
-        </span>{" "}
-        for at gå til sign up
-      </p>
-      <section className={style.buttonContainer}>
+      <div className={style.signedInContainer}>
+        <CustomButton label={"Log ud"} onClick={() => logOut()} />
         <CustomButton
-          label={"Login"}
-          onClick={() => {
-            setLoginMessage("");
+          label={"Gå til konto"}
+          onClick={() => navigate("/min-konto")}
+        />
+      </div>
+    </MarginContainer>
+  ) : (
+    <MarginContainer>
+      <form className={style.formStyling}>
+        <h2>Login</h2>
+        <InputField
+          icon={"at"}
+          labelText="Email"
+          type="email"
+          placeholder="Skriv en email..."
+          id="email"
+          isShowing={true}
+          action={(value) => {
+            setEmail(value);
             setError("");
-            submitData();
           }}
         />
-      </section>
-    </form>
-  )
+        <InputField
+          icon={"secure"}
+          labelText="Password"
+          type="password"
+          placeholder="Skriv et password..."
+          id="password"
+          isShowing={true}
+          action={(value) => {
+            setPassword(value);
+            setError("");
+          }}
+        />
+        <p>
+          har du ikke allerede en konto? Klik{" "}
+          <span className={style.toggle} onClick={toggleRegister}>
+            her
+          </span>{" "}
+          for at gå til sign up
+        </p>
+        <section className={style.buttonContainer}>
+          <CustomButton
+            label={"Login"}
+            onClick={() => {
+              setLoginMessage("");
+              setError("");
+              submitData();
+            }}
+          />
+        </section>
+      </form>
+    </MarginContainer>
   );
 }

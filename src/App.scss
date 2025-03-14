@@ -1,9 +1,5 @@
 @use "./assets/styles/placeholder" as *;
-@use "./assets/styles/variables" as *;
 
-#root{
-    
-}
 
 body{
     @extend %noMarPad;

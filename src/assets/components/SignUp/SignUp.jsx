@@ -4,6 +4,7 @@ import { CustomButton } from "../CustomButton/CustomButton";
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { CheckBox } from "../CheckBox/CheckBox";
+import { MarginContainer } from "../MarginContainer/MarginContainer";
 
 export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
   //Inputfield useStates
@@ -36,7 +37,6 @@ export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
 
     async function fetchData() {
       try {
-
         const response = await fetch("http://localhost:4242/users", {
           method: "POST",
           body: body,
@@ -81,113 +81,117 @@ export function SignUp({ toggleSignIn, setError, setLoginMessage }) {
   };
 
   return (
-    <form>
-      <h2>Opret konto</h2>
-      <InputField
-        labelText="Email"
-        type="email"
-        placeholder="Skriv en email..."
-        id="email"
-        action={(value) => {
-          setEmail(value);
-          setError("");
-        }}
-      />
-      <InputField
-        labelText="Password"
-        type="password"
-        placeholder="Skriv et password..."
-        id="password"
-        action={(value) => {
-          setPassword(value);
-          setError("");
-        }}
-      />
-
-      <InputField
-        labelText="Gentag Password"
-        type="password"
-        placeholder="Gentag dit password..."
-        id="confirmPassword"
-        action={(value) => {
-          setConfirmPassword(value);
-          setError("");
-        }}
-      />
-      <InputField
-        labelText="Fornavn"
-        type="text"
-        placeholder="Skriv dit Fornavn..."
-        id="firstname"
-        action={(value) => {
-          setFirstname(value);
-          setError("");
-        }}
-      />
-      <InputField
-        labelText="Efternavn"
-        type="text"
-        placeholder="Skriv dit Efternavn..."
-        id="lastname"
-        action={(value) => {
-          setLastname(value);
-          setError("");
-        }}
-      />
-      <InputField
-        labelText="Adresse"
-        type="text"
-        placeholder="Skriv din Adresse..."
-        id="address"
-        action={(value) => {
-          setAddress(value);
-          setError("");
-        }}
-      />
-      <InputField
-        labelText="By"
-        type="text"
-        placeholder="Skriv din by..."
-        id="city"
-        action={(value) => {
-          setCity(value);
-          setError("");
-        }}
-      />
-      <InputField
-        labelText="Postnummer"
-        type="number"
-        placeholder="Skriv dit postnummer..."
-        id="zipcode"
-        action={(value) => {
-          setZipcode(value);
-          setError("");
-        }}
-      />
-      <p>
-        har du allerede en konto hos os? Klik{" "}
-        <span className={style.toggle} onClick={toggleSignIn}>
-          her
-        </span>{" "}
-        for at vende tilbage til login.
-      </p>
-
-      <section className={style.buttonsContainer}>
-        <CheckBox isChecked={isChecked} setIsChecked={setIsChecked}/>
-        <CustomButton
-          label={"Opret"}
-          onClick={() => {
-            setLoginMessage("");
+    <MarginContainer>
+      <form>
+        <h2>Opret konto</h2>
+        <InputField
+          labelText="Email"
+          type="email"
+          placeholder="Skriv en email..."
+          id="email"
+          action={(value) => {
+            setEmail(value);
             setError("");
-            if (!isChecked) {
-              setError("Du skal acceptere betingelserne for at oprette en bruger.");
-              return;
-            }
-            registerUser();
-            toggleSignIn();
           }}
         />
-      </section>
-    </form>
+        <InputField
+          labelText="Password"
+          type="password"
+          placeholder="Skriv et password..."
+          id="password"
+          action={(value) => {
+            setPassword(value);
+            setError("");
+          }}
+        />
+
+        <InputField
+          labelText="Gentag Password"
+          type="password"
+          placeholder="Gentag dit password..."
+          id="confirmPassword"
+          action={(value) => {
+            setConfirmPassword(value);
+            setError("");
+          }}
+        />
+        <InputField
+          labelText="Fornavn"
+          type="text"
+          placeholder="Skriv dit Fornavn..."
+          id="firstname"
+          action={(value) => {
+            setFirstname(value);
+            setError("");
+          }}
+        />
+        <InputField
+          labelText="Efternavn"
+          type="text"
+          placeholder="Skriv dit Efternavn..."
+          id="lastname"
+          action={(value) => {
+            setLastname(value);
+            setError("");
+          }}
+        />
+        <InputField
+          labelText="Adresse"
+          type="text"
+          placeholder="Skriv din Adresse..."
+          id="address"
+          action={(value) => {
+            setAddress(value);
+            setError("");
+          }}
+        />
+        <InputField
+          labelText="By"
+          type="text"
+          placeholder="Skriv din by..."
+          id="city"
+          action={(value) => {
+            setCity(value);
+            setError("");
+          }}
+        />
+        <InputField
+          labelText="Postnummer"
+          type="number"
+          placeholder="Skriv dit postnummer..."
+          id="zipcode"
+          action={(value) => {
+            setZipcode(value);
+            setError("");
+          }}
+        />
+        <p>
+          har du allerede en konto hos os? Klik{" "}
+          <span className={style.toggle} onClick={toggleSignIn}>
+            her
+          </span>{" "}
+          for at vende tilbage til login.
+        </p>
+
+        <section className={style.buttonsContainer}>
+          <CheckBox isChecked={isChecked} setIsChecked={setIsChecked} />
+          <CustomButton
+            label={"Opret"}
+            onClick={() => {
+              setLoginMessage("");
+              setError("");
+              if (!isChecked) {
+                setError(
+                  "Du skal acceptere betingelserne for at oprette en bruger."
+                );
+                return;
+              }
+              registerUser();
+              toggleSignIn();
+            }}
+          />
+        </section>
+      </form>
+    </MarginContainer>
   );
 }

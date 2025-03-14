@@ -1,0 +1,54 @@
+@use "../../styles/placeholder" as *;
+@use "../../styles/variables" as *;
+@use "../../styles/mixin" as mx;
+
+.commentContainer {
+  @include mx.flexible(column, 0);
+  max-width: 50%;
+
+  p {
+    font-size: 12px;
+    font-weight: 200;
+  }
+  span {
+    display: flex;
+    border: 2px solid $transparent-green;
+    height: 70px;
+    @extend %absoluteCenter;
+    p {
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+
+  button {
+    width: max-content;
+    background-color: transparent;
+    color: $color-brown;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+    .commentContainer {
+        max-width: 50%;
+        p {
+          font-size: 12px;
+        }
+        span {
+          border: 2px solid $transparent-green;
+          height: 70px;
+          p {
+            font-size: 14px;
+          }
+        }
+      
+        button {
+          width: max-content;
+        }
+      }
+}
+@media (max-width: 700px) {
+}

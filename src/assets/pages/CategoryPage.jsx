@@ -4,6 +4,7 @@ import { GridContainer } from "../components/GridContainer/GridContainer";
 import { ProductsByCategory } from "../components/ProductsByCategory/ProductsByCategory";
 import { Splitter } from "../components/Splitter/Splitter";
 import { MarginContainer } from "../components/MarginContainer/MarginContainer";
+import { CategoryList } from "../components/CategoryList/CategoryList";
 
 export function CategoryPage() {
   const { slug } = useParams();
@@ -15,6 +16,7 @@ export function CategoryPage() {
     <>
       <Splitter />
       <MarginContainer>
+        <CategoryList urlSlug={slug} />
         <GridContainer fraction={"1fr 1fr 1fr"} gap={"1rem"}>
           {!isLoading &&
             data?.data.map((product) => {

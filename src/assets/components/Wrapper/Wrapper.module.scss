@@ -10,3 +10,17 @@
     max-width: 980px;
     margin: 0 auto;
 }
+
+@media (max-width: 1200px) {
+    .wrapperContainer{
+        padding: 5rem;
+        min-height: 50vw;
+    }
+    .maxContent{
+        max-width: 980px;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 700px) {
+  
+}

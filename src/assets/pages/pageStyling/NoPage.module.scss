@@ -1,12 +1,12 @@
-@use '../../styles/variables' as *;
-@use '../../styles/placeholder' as *;
-@use '../../styles/mixin' as mx;
+@use "../../styles/variables" as *;
+@use "../../styles/placeholder" as *;
+@use "../../styles/mixin" as mx;
 
-.nopageContainer{
-    @include mx.flexible(column, 1rem);
-    @extend %absoluteCenter;
+.nopageContainer {
+  @include mx.flexible(column, 1rem);
+  @extend %absoluteCenter;
 
-    a{
-        color: $color-blue
-    }
+  a {
+    color: $color-blue;
+  }
 }

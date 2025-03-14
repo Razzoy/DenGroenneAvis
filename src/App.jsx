@@ -7,6 +7,7 @@ import { NoPage } from './assets/pages/NoPage'
 import { CategoryPage } from './assets/pages/CategoryPage'
 import { ProductPage } from './assets/pages/ProductPage'
 import { LoginPage } from './assets/pages/LoginPage'
+import { ProfilePage } from './assets/pages/ProfilePage'
 
 function App() {
 
@@ -16,10 +17,11 @@ function App() {
       <Routes>
         <Route path={"/"} element={<MainLayout/>} >
         <Route index={true} element={<FrontPage/>}/>
-        <Route path={"/listing"} element={<ListingPage/>} />
         <Route path={"/login"} element={<LoginPage/>} />
         <Route path={"/products/:slug"} element={<ProductPage/>} />
         <Route path={"/products/category/:slug"} element={<CategoryPage/>} />
+        <Route path={"/listing"} element={<ListingPage/>} />
+        <Route path={"/profile"} element={<ProfilePage/>} />
         <Route path={"/*"} element={<NoPage/>} />
         </Route>
       </Routes>

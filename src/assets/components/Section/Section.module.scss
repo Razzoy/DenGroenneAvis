@@ -6,16 +6,15 @@
   position: relative;
 }
 
-.backgroundImage{
-    filter: brightness(80%);
-    background-size: cover;
+.backgroundImage {
+  filter: brightness(80%);
+  background-size: cover;
   background-position: center 75%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .sectionContent {
@@ -28,8 +27,6 @@
   h4 {
     color: $color-secondary;
     margin: 0;
-  }
-  h3 {
   }
 
   h4 {
@@ -74,4 +71,52 @@
       font-size: 16px;
     }
   }
+}
+
+@media (max-width: 1200px) {
+  .backgroundImage {
+    background-position: center 75%;
+  }
+  
+  .sectionContent {
+    height: 100%;
+    h4 {
+      font-size: 32px;
+      text-align: end;
+    }
+    p {
+      font-size: 11px;
+    }
+  }
+  .mainSection {
+    height: 240px;
+    .sectionContent {
+      @include mx.flexible(column, 1rem);
+      h2 {
+        font-size: 32px;
+      }
+      h3 {
+        font-size: 20px;
+        text-align: center;
+        width: 50%;
+      }
+    }
+  }
+  .altSection {
+    height: 150px;
+    .sectionContent {
+      padding: 1rem 2rem;
+      h2 {
+        font-size: 24px;
+      }
+      h3 {
+        font-size: 16px;
+      }
+    }
+  }
+  
+
+}
+@media (max-width: 700px) {
+  
 }

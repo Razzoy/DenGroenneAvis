@@ -1,3 +1,14 @@
-.sectionTitle{
-    font-size: 20px;
+.sectionTitle {
+  font-size: 20px;
+}
+
+@media (max-width: 1200px) {
+  .sectionTitle {
+    font-size: 18px;
+  }
+}
+@media (max-width: 700px) {
+  .sectionTitle {
+    font-size: 15px;
+  }
 }

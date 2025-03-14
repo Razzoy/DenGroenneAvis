@@ -5,13 +5,19 @@ export const InputField = ({
   placeholder,
   labelText,
   action,
+  actionListing,
   id,
   icon,
   isShowing,
   value,
 }) => {
   const onInputChange = (e) => {
-    action(e.target.value);
+    if (action){
+      action(e.target.value);
+    }
+    if (actionListing){
+      actionListing(e);
+    }
   };
 
   return (

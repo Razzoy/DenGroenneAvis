@@ -2,51 +2,99 @@
 @use "../../styles/placeholder" as *;
 @use "../../styles/variables" as *;
 
-h6{
-    @extend %noMarPad;
+h6 {
+  @extend %noMarPad;
 }
-p{
-    @extend %noMarPad;
+p {
+  @extend %noMarPad;
+}
+h2 {
+  text-align: center;
 }
 
-form{
-    @include mx.flexible(column, 1rem);
-    
-
-    input{
-        max-width: 400px; 
+.signedInContainer {
+  @include mx.flexible(row, 1rem);
+  button {
+    background-color: $color-blue;
+    &:hover {
+      background-color: $color-brown;
     }
-    p{
-        font-size: 0.9rem;
-        font-weight: 200;
+  }
+  button:last-of-type {
+    &:hover {
+      background-color: $color-green;
     }
+  }
 }
 
-.toggle{
-    color: $color-blue;
-    text-decoration: underline;
-    cursor: pointer;
+.formStyling {
+  @include mx.flexible(column, 1rem);
+  justify-content: center;
+  h2 {
+    text-align: center;
+  }
+
+  input {
+    max-width: 400px;
+  }
+  p {
+    font-size: 0.9rem;
+    font-weight: 200;
+  }
 }
 
-.buttonsContainer{
+.toggle {
+  color: $color-blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.buttonContainer {
+  @include mx.flexible(row, 1rem);
+  justify-content: flex-end;
+
+  button {
+    min-width: 130px;
+  }
+}
+
+.messageContainer {
+  padding: 1rem 0;
+}
+
+.error {
+  color: $color-brown;
+}
+
+.success {
+  color: $color-green;
+}
+
+@media (max-width: 1200px) {
+  .signedInContainer {
     @include mx.flexible(row, 1rem);
-
-    
-    button{
-        min-width: 130px;
+  }
+  .formStyling {
+    @include mx.flexible(column, 1rem);
+    justify-content: center;
+    input {
+      max-width: 400px;
     }
-}
-
-.messageContainer{
+    p {
+      font-size: 0.9rem;
+    }
+  }
+  .buttonContainer {
+    @include mx.flexible(row, 1rem);
+    justify-content: flex-end;
+    button {
+      min-width: 130px;
+    }
+  }
+  .messageContainer {
     padding: 1rem 0;
+  }
 }
 
-
-
-.error{
-    color: $color-brown;
-}
-
-.success{
-    color: $color-green;
+@media (max-width: 700px) {
 }

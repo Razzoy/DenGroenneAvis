@@ -1,0 +1,45 @@
+@use "../../styles/placeholder" as *;
+
+.listContainer {
+  position: absolute;
+  left: -25%;
+  top: 5%;
+  h2 {
+    font-size: 20px;
+  }
+  ul {
+    @extend %roboto;
+    @extend %noMarPad;
+    padding-left: 1rem;
+    list-style: none;
+
+    li {
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 300;
+    }
+
+    .active {
+      font-weight: 500;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+    .listContainer {
+        left: -25%;
+        top: 5%;
+        h2 {
+          font-size: 20px;
+        }
+        ul {
+          padding-left: 1rem;
+      
+          li {
+            font-size: 14px;
+          }
+        }
+      }
+}
+@media (max-width: 700px) {
+}
